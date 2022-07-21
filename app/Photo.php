@@ -4,20 +4,15 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Post extends Model
+class Photo extends Model
 {
     //
-    public function user(){
 
+    public function imageable(){
         return $this->belongsTo('App\User');
-
     }
 
-    public function photo(){
+    public function photos(){
         return $this->morphMany('App\Photo', 'imageable');
-    }
-
-    public function tage(){
-        return $this->morphToMany('App\Tag', 'taggable');
     }
 }
